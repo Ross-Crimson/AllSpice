@@ -38,7 +38,7 @@ public class IngredientsRepository
         SELECT
         *
         FROM ingredients
-        WHERE ingredients.recipeId = recipeId
+        WHERE recipeId = @recipeId
         ;";
 
         List<Ingredient> ingredients = _db.Query<Ingredient>(sql, new { recipeId }).ToList();

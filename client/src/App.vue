@@ -10,11 +10,8 @@ import Navbar from './components/Navbar.vue'
     <Navbar />
   </header>
   <main>
-    <router-view />
+    <RouterView />
   </main>
-  <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
-  </footer>
 </template>
 
 <style lang="scss">

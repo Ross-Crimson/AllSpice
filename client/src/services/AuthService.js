@@ -4,6 +4,8 @@ import { audience, clientId, domain } from '../env'
 import { accountService } from './AccountService'
 import { api } from './AxiosService'
 import { socketService } from './SocketService'
+import { recipesService } from './RecipesService.js'
+import Pop from '../utils/Pop.js'
 
 
 export const AuthService = initialize({
@@ -15,7 +17,7 @@ export const AuthService = initialize({
   }
 })
 
-AuthService.on(AUTH_EVENTS.AUTHENTICATED, async function() {
+AuthService.on(AUTH_EVENTS.AUTHENTICATED, async function () {
   api.defaults.headers.authorization = AuthService.bearer
   api.interceptors.request.use(refreshAuthToken)
   AppState.identity = AuthService.identity

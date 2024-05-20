@@ -8,21 +8,28 @@ import { AppState } from '../AppState.js';
 const props = defineProps({ recipe: { type: Recipe, required: true } })
 
 const userFavorites = computed(() => AppState.usersFavorites)
-const backgroundImg = computed(() => `url(${props.recipe.img})`)
+const backgroundImg = computed(() => `url(${props.recipe?.img})`)
+const account = computed(() => AppState.account)
 
 </script>
 
 
 <template>
-    <section>
+    <section v-if="recipe">
         <div class="card d-flex justify-content-between text-light">
-            <div class="px-1 py-2 d-flex">
+            <div class="px-1 py-1 d-flex justify-content-between align-items-center">
 
                 <div class="text-start glass px-3 py-1">
                     {{ recipe.category }}
                 </div>
-                <div v-if="userFavorites.find(fav => fav.id == recipe.id)">
-                    favorited
+
+                <div class="px-3 fs-3">
+                    <div v-if="account && userFavorites.find(fav => fav.id == recipe.id)">
+                        <i class="mdi mdi-heart" style="color: red;"></i>
+                    </div>
+                    <div v-else>
+                        <i class="mdi mdi-heart-outline"></i>
+                    </div>
                 </div>
             </div>
 

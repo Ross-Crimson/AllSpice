@@ -1,4 +1,4 @@
-import { Account } from "./Account.js"
+import { Profile } from "./Profile.js"
 
 export class Favorite {
     constructor(data) {
@@ -9,6 +9,6 @@ export class Favorite {
         this.img = data.img
         this.category = data.category
         this.creatorId = data.creatorId
-        this.creator = new Account(data.creator)
+        this.creator = new Profile(data.creator)
     }
 }

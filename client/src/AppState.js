@@ -10,10 +10,19 @@ export const AppState = reactive({
   account: null,
 
   /** @type {Recipe[]} */
-  recipes: [],
+  visibleRecipes: [],
 
-  /** @type {Favorite[]} */
-  allFavorites: [],
+  /** @type {Recipe[]} */
+  allRecipes: [],
+
+  /** @type {Recipe[]} */
+  favoriteRecipes: [],
+
+  /** @type {Recipe[]} */
+  userRecipes: [],
+
+  /** @type {Recipe} */
+  displayedRecipe: null,
 
   /** @type {Favorite[]} */
   usersFavorites: []

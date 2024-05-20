@@ -28,7 +28,7 @@ class RecipesService {
         const userRecipes = AppState.allRecipes.filter(recipe => recipe.creator.id == AppState.account.id)
         AppState.userRecipes = userRecipes
 
-        console.log("favorite data", userRecipes)
+        //console.log("favorite data", userRecipes)
     }
 }
 

@@ -4,6 +4,8 @@ import { recipesService } from '../services/RecipesService.js';
 import { AppState } from '../AppState.js';
 import RecipeCard from '../components/RecipeCard.vue';
 import Pop from '../utils/Pop.js';
+import RecipeViewModal from '../components/RecipeViewModal.vue';
+import CreateRecipeFormModal from '../components/CreateRecipeFormModal.vue';
 
 
 const account = computed(() => AppState.account)
@@ -96,8 +98,21 @@ onMounted(() => {
       <div v-for="recipe in displayedRecipes" :key="recipe.id" class="col-4 p-3">
         <RecipeCard :recipe="recipe" />
       </div>
+
+
+    </div>
+
+    <div class="row justify-content-end fixed-bottom" style="pointer-events: none">
+      <div class="col text-end">
+        <button class="btn btn-dark btn-lg rounded m-3" data-bs-toggle="modal" data-bs-target="#createRecipeModal"
+          style="pointer-events:all"><span class="fs-3 fw-bold px-1">+</span></button>
+      </div>
+    </div>
+    <div class="row">
     </div>
   </section>
+  <RecipeViewModal />
+  <CreateRecipeFormModal />
 </template>
 
 <style scoped lang="scss">
@@ -141,5 +156,14 @@ onMounted(() => {
 .button-group-button:hover {
   background-color: wheat;
   color: #515151;
+}
+
+.round-button {
+  background-color: #515151;
+  min-width: 20px;
+  min-height: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  color: white;
 }
 </style>

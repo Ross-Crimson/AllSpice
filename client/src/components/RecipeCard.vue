@@ -11,11 +11,15 @@ const userFavorites = computed(() => AppState.usersFavorites)
 const backgroundImg = computed(() => `url(${props.recipe?.img})`)
 const account = computed(() => AppState.account)
 
+function setActiveRecipe() {
+    AppState.displayedRecipe = props.recipe
+}
+
 </script>
 
 
 <template>
-    <section v-if="recipe">
+    <section @click="setActiveRecipe()" data-bs-toggle="modal" data-bs-target="#activeRecipeModal">
         <div class="card d-flex justify-content-between text-light">
             <div class="px-1 py-1 d-flex justify-content-between align-items-center">
 

@@ -27,4 +27,8 @@ footer {
   place-content: center;
   height: 32px;
 }
+
+body.modal-open {
+  width: 100% !important;
+}
 </style>

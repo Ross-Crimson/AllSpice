@@ -35,6 +35,7 @@ CREATE TABLE ingredients (
     recipeId INT NOT NULL
 );
 
+--recipeId and account Id might need to be foreign keys to cascade delete all
 CREATE TABLE favorites (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,

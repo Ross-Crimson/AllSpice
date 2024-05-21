@@ -95,7 +95,7 @@ onMounted(() => {
     </div>
 
     <div class="row">
-      <div v-for="recipe in displayedRecipes" :key="recipe.id" class="col-4 p-3">
+      <div v-for="recipe in displayedRecipes" :key="recipe.id" class="col-12 col-md-4 p-3">
         <RecipeCard :recipe="recipe" />
       </div>
 

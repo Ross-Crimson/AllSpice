@@ -4,6 +4,9 @@ import { Recipe } from "../models/Recipe.js"
 import { api } from "./AxiosService.js"
 
 class RecipesService {
+    createRecipe(id, value) {
+        throw new Error('Method not implemented.')
+    }
     async getRecipes() {
         const response = await api.get('api/recipes')
         const recipes = response.data.map(recipeData => new Recipe(recipeData))

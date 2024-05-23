@@ -32,7 +32,9 @@ CREATE TABLE ingredients (
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     name VARCHAR(255) NOT NULL,
     quantity VARCHAR(255) NOT NULL,
-    recipeId INT NOT NULL
+    recipeId INT NOT NULL,
+    -- not sure about this next like
+    FOREIGN KEY (recipeId) REFERENCES recipes (id) ON DELETE CASCADE
 );
 
 --recipeId and account Id might need to be foreign keys to cascade delete all
@@ -41,5 +43,8 @@ CREATE TABLE favorites (
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     recipeId INT NOT NULL,
-    accountId VARCHAR(255) NOT NULL
+    accountId VARCHAR(255) NOT NULL,
+    -- not sure
+    FOREIGN KEY (recipeId) REFERENCES recipes (id) ON DELETE CASCADE,
+    FOREIGN KEY (accountId) REFERENCES accounts (id) ON DELETE CASCADE
 )
